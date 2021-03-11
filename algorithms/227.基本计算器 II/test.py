@@ -9,7 +9,7 @@ class Solution:
                 # 多位数字合并int 为了后面做运算
                 num = num * 10 + int(x)
 
-            if x in '+-x/' or i == len(s)-1:
+            if x in '+-*/' or i == len(s)-1:
                 # 为 加减乘除 和 最后一位数做运算
                 if pre_op == '+':
                     stack.append(num)
@@ -18,10 +18,12 @@ class Solution:
                 elif pre_op == '*':
                     stack.append(stack.pop() * num)
                 elif pre_op == '/':
-                    if num > 0:
-                        stack.append(stack.pop() // num)
+                    top = stack.pop()
+                    # 除数和被除数必须大于0
+                    if top > 0 and num > 0:
+                        stack.append(top // num)
                     else:
-                        stack.append(int(stack.pop() / num))
+                        stack.append(int(top / num))
 
                 # 运算符
                 pre_op = x
@@ -32,5 +34,5 @@ class Solution:
         return sum(stack)
 
 object = Solution()
-result = object.calculate(' 3+5 / 2 ')
+result = object.calculate('14-3/2')
 print(result)
