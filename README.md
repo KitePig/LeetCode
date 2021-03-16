@@ -3,5 +3,5 @@
 
 敢于飞向天空的猪
 
-![](./kite.png)
-![](./pig.png)
+![Kite](./kite.png)
+![Pig](./pig.png)
