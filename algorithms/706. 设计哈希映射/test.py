@@ -8,7 +8,7 @@ class MyHashMap:
         self.table = [[]] * self.bucket
 
     def hash_key(self, key):
-        return key % self.bucket #取模 分组
+        return key % self.bucket #取模/分组
 
     def put(self, key: int, value: int) -> None:
         """
@@ -42,7 +42,7 @@ class MyHashMap:
             if item[0] == key:
                 self.table[hash_key].pop(i)
                 return
-        return 
+        return
 
 
 # Your MyHashMap object will be instantiated and called as such:
